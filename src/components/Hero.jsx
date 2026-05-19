@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-const Hero = () => {
+const Hero = ({ onNavigate }) => {
     // Varianti per far apparire i testi in sequenza fluida
     const fadeInUp = {
         hidden: { opacity: 0, y: 15 },
@@ -46,8 +46,8 @@ const Hero = () => {
                     <motion.button
                         whileHover={{ y: -2, bg: "#4c1d95" }}
                         whileTap={{ scale: 0.98 }}
-                        onClick={() => navigateTo('onboarding')}
-                        className="w-full sm:w-auto px-8 py-4 bg-stone-950 text-stone-50 text-sm font-medium rounded-full shadow-sm hover:shadow transition-all duration-200 text-center"
+                        onClick={() => onNavigate('onboarding')}
+                        className="w-full sm:w-auto px-8 py-4 bg-indigo-600 text-stone-50 text-sm font-medium rounded-full shadow-sm hover:shadow transition-all duration-200 text-center"
                     >
                         Inizia l'Onboarding
                     </motion.button>

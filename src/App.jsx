@@ -6,6 +6,8 @@ import Service from './components/Service';
 import CTASection from './components/CTASection';
 import Onboarding from './components/Onboarding';
 import Method from './components/Method';
+import MiniPortfolio from './components/MiniPortfolio';
+import Testimonials from './components/Testimonials';
 
 export default function App() {
     const [currentPage, setCurrentPage] = useState('home'); // 'home' | 'onboarding'
@@ -65,7 +67,9 @@ export default function App() {
                     >
                         <Navbar onNavigate={navigateTo} />
                         <Hero onNavigate={navigateTo} />
+                        <MiniPortfolio onNavigate={navigateTo} />
                         <Service onNavigate={navigateTo} />
+                        <Testimonials onNavigate={navigateTo} />
                         <Method onNavigate={navigateTo} />
                         <CTASection onNavigate={navigateTo} />
                         

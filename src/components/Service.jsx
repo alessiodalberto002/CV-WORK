@@ -1,138 +1,72 @@
 import { motion } from 'framer-motion';
 
-const Service = () => {
-    // Animazione di ingresso fluida e sequenziale (stagger) al caricamento/scroll
+const Service = ({ navigateTo }) => { // Assicurati di passare la prop
     const containerVariants = {
         hidden: { opacity: 0 },
         show: {
             opacity: 1,
-            transition: { staggerChildren: 0.12, delayChildren: 0.1 }
+            transition: { staggerChildren: 0.2 }
         }
     };
 
     const cardVariants = {
-        hidden: { opacity: 0, y: 20 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+        hidden: { opacity: 0, y: 30 },
+        show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } }
     };
 
     return (
-        <section id="servizi" className="py-24 sm:py-32 bg-stone-50 border-t border-stone-200/60">
-            <div className="max-w-4xl mx-auto px-6 sm:px-8">
+        <section id="servizi" className="min-h-screen flex justify-center items-center bg-white">
+            <div className="max-w-6xl mx-auto px-6">
 
-                {/* Intestazione in stile Editoriale */}
-                <div className="text-center max-w-2xl mx-auto mb-20 space-y-4">
-                    <span className="text-xs font-medium tracking-widest text-stone-400 uppercase">
-                        I Nostri Pacchetti
-                    </span>
-                    <h2 className="text-3xl sm:text-4xl font-normal tracking-tight text-stone-900 leading-tight">
-                        Soluzioni su misura per la tua candidatura
-                    </h2>
-                    <p className="text-base sm:text-lg text-stone-500 font-light">
-                        Scegli il livello di impatto che desideri dare alla tua prossima sfida professionale.
-                    </p>
+                <div className="text-center max-w-xl mx-auto mb-24 space-y-4">
+                    <h2 className="text-4xl md:text-5xl font-medium text-indigo-600 tracking-tight">Investi nel tuo futuro</h2>
+                    <p className="text-stone-500 font-light text-lg">Seleziona il percorso ideale per sbloccare la tua prossima opportunità professionale.</p>
                 </div>
 
-                {/* Grid delle Card */}
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: true, margin: "-100px" }}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch"
+                    viewport={{ once: true }}
+                    className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center"
                 >
-                    {/* Card 1: The Digital Classic */}
-                    <motion.div
-                        variants={cardVariants}
-                        whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                        className="bg-white border border-stone-200/80 rounded-3xl p-8 flex flex-col justify-between shadow-sm"
-                    >
+                    {/* Card Standard */}
+                    <motion.div variants={cardVariants} className="bg-stone-50 rounded-[32px] p-8 border border-stone-200/60 h-full flex flex-col justify-between hover:border-stone-300 transition-colors">
                         <div className="space-y-6">
-                            <span className="inline-block px-3 py-1 text-[11px] font-medium tracking-wide text-stone-600 bg-stone-100 rounded-full">
-                                Digitale & ATS
-                            </span>
-                            <div className="space-y-2">
-                                <h3 className="text-xl font-normal text-stone-900">The Digital Classic</h3>
-                                <p className="text-sm text-stone-500 font-light leading-relaxed">
-                                    Ottimizzato per superare i filtri dei software di selezione aziendali (ATS).
-                                </p>
-                            </div>
-                            <p className="text-2xl font-light text-stone-900 pt-2">
-                                <span className="text-sm text-stone-400 font-light">da</span> 120€
-                            </p>
+                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-400">Entry Level</span>
+                            <h3 className="text-2xl text-stone-900">Digital Classic</h3>
+                            <p className="text-stone-500 text-sm leading-relaxed">Ottimizzazione mirata per superare i filtri ATS e posizionarti nei database HR.</p>
+                            <p className="text-3xl font-normal">120€</p>
                         </div>
-                        <motion.button
-                            whileTap={{ scale: 0.98 }}
-                            onClick={() => navigateTo('onboarding')}
-                            className="mt-8 block text-center py-3.5 bg-stone-50 border border-stone-200 hover:bg-stone-100 hover:text-stone-900 text-stone-600 text-sm font-medium rounded-2xl transition-colors"
-                        >
-                            Seleziona
-                        </motion.button>
+                        <button onClick={() => navigateTo('onboarding')} className="mt-10 w-full py-4 border border-stone-900 rounded-2xl hover:bg-stone-900 hover:text-white transition-all">Seleziona</button>
                     </motion.div>
 
-                    {/* Card 2: The Ready-to-Print (IL PIÙ RICHIESTO - Inversione di Contrasto Elegante) */}
+                    {/* Card "Hero" (Ready-to-Print) */}
                     <motion.div
                         variants={cardVariants}
-                        whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                        className="bg-stone-950 border border-stone-900 rounded-3xl p-8 flex flex-col justify-between shadow-md relative overflow-hidden"
+                        className="relative bg-indigo-600 rounded-[32px] p-8 md:p-10 flex flex-col justify-between shadow-[0_20px_50px_-12px_rgba(0,0,0,0.3)] text-white transform md:scale-105 z-10"
                     >
-                        {/* Micro-badge discreto incorporato in alto */}
-                        <div className="absolute top-0 right-0 px-4 py-1.5 bg-stone-800 text-[10px] font-medium tracking-wider text-stone-300 rounded-bl-xl uppercase">
-                            Popolare
-                        </div>
-
+                        <div className="absolute top-6 right-6 px-3 py-1 bg-white text-indigo-600 text-[10px] font-bold uppercase tracking-widest rounded-full">Best Seller</div>
                         <div className="space-y-6">
-                            <span className="inline-block px-3 py-1 text-[11px] font-medium tracking-wide text-stone-400 bg-stone-900 rounded-full">
-                                Fisico + Digitale
-                            </span>
-                            <div className="space-y-2">
-                                <h3 className="text-xl font-normal text-stone-50">The Ready-to-Print</h3>
-                                <p className="text-sm text-stone-400 font-light leading-relaxed">
-                                    Perfetto sia online che per colloqui di persona ed eventi di networking.
-                                </p>
-                            </div>
-                            <p className="text-2xl font-light text-stone-50 pt-2">
-                                <span className="text-sm text-stone-500 font-light">da</span> 170€
-                            </p>
+                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white">Professional</span>
+                            <h3 className="text-3xl font-normal">Ready-to-Print</h3>
+                            <p className="text-stone-300 text-sm leading-relaxed">Il mix perfetto: design fisico impeccabile e architettura digitale ottimizzata per il networking.</p>
+                            <p className="text-4xl font-normal">170€</p>
                         </div>
-                        <motion.button
-                            whileTap={{ scale: 0.98 }}
-                            onClick={() => navigateTo('onboarding')}
-                            className="mt-8 block text-center py-3.5 bg-stone-50 hover:bg-stone-200 text-stone-950 text-sm font-medium rounded-2xl transition-colors shadow-sm"
-                        >
-                            Seleziona e Inizia
-                        </motion.button>
+                        <button onClick={() => navigateTo('onboarding')} className="mt-10 w-full py-4 bg-white text-stone-950 rounded-2xl font-medium hover:bg-stone-200 transition-all">Inizia ora</button>
                     </motion.div>
 
-                    {/* Card 3: The Full Identity */}
-                    <motion.div
-                        variants={cardVariants}
-                        whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                        className="bg-white border border-stone-200/80 rounded-3xl p-8 flex flex-col justify-between shadow-sm"
-                    >
+                    {/* Card Full Identity */}
+                    <motion.div variants={cardVariants} className="bg-stone-50 rounded-[32px] p-8 border border-stone-200/60 h-full flex flex-col justify-between hover:border-stone-300 transition-colors">
                         <div className="space-y-6">
-                            <span className="inline-block px-3 py-1 text-[11px] font-medium tracking-wide text-stone-600 bg-stone-100 rounded-full">
-                                Identità Completa
-                            </span>
-                            <div className="space-y-2">
-                                <h3 className="text-xl font-normal text-stone-900">The Full Identity</h3>
-                                <p className="text-sm text-stone-500 font-light leading-relaxed">
-                                    La massima espressione professionale: trasforma il tuo CV in un sito web vetrina.
-                                </p>
-                            </div>
-                            <p className="text-2xl font-light text-stone-900 pt-2">
-                                <span className="text-sm text-stone-400 font-light">da</span> 450€
-                            </p>
+                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-400">Executive</span>
+                            <h3 className="text-2xl text-stone-900">Full Identity</h3>
+                            <p className="text-stone-500 text-sm leading-relaxed">La soluzione definitiva: CV, Portfolio digitale, cover letter e setup LinkedIn personalizzato.</p>
+                            <p className="text-3xl font-normal">450€</p>
                         </div>
-                        <motion.button
-                            whileTap={{ scale: 0.98 }}
-                            onClick={() => navigateTo('onboarding')}
-                            className="mt-8 block text-center py-3.5 bg-stone-50 border border-stone-200 hover:bg-stone-100 hover:text-stone-900 text-stone-600 text-sm font-medium rounded-2xl transition-colors"
-                        >
-                            Seleziona
-                        </motion.button>
+                        <button onClick={() => navigateTo('onboarding')} className="mt-10 w-full py-4 border border-stone-900 rounded-2xl hover:bg-stone-900 hover:text-white transition-all">Seleziona</button>
                     </motion.div>
                 </motion.div>
-
             </div>
         </section>
     );
