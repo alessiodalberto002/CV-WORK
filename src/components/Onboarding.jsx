@@ -11,11 +11,11 @@ const Onboarding = ({
     return (
         <div className="bg-stone-50 min-h-screen flex flex-col justify-between selection:bg-stone-200">
             {/* BARRA SUPERIORE MINIMALE */}
-            <div className="w-full bg-white/80 backdrop-blur-md border-b border-stone-200/40 px-6 py-4 flex items-center justify-between sticky top-0 z-50">
+            <div className="w-full bg-white/80 backdrop-blur-md border-b border-stone-200/40 px-6 py-4 flex items-center justify-between z-50">
                 <motion.button
                     whileHover={{ x: -2 }}
                     onClick={() => onNavigate('home')}
-                    className="inline-flex items-center space-x-2 text-xs font-medium text-stone-500 hover:text-stone-900 bg-stone-50 border border-stone-200 px-4 py-2 rounded-full shadow-sm transition-colors"
+                    className=" inline-flex items-center space-x-2 text-xs font-medium text-stone-500 hover:text-stone-900 bg-stone-50 border border-stone-200 px-4 py-2 rounded-full shadow-sm transition-colors"
                 >
                     <span>←</span> <span>Torna alla Home</span>
                 </motion.button>
@@ -197,7 +197,7 @@ const Onboarding = ({
                                     <motion.button
                                         whileTap={{ scale: 0.99 }}
                                         type="submit"
-                                        className="w-full py-4 bg-stone-950 hover:bg-stone-900 text-stone-50 font-medium rounded-xl text-xs tracking-wider uppercase shadow-sm transition-colors"
+                                        className="w-full py-4 bg-stone-950 hover:bg-indigo-600 text-stone-50 font-medium rounded-xl text-xs tracking-wider uppercase shadow-sm transition-colors"
                                     >
                                         Salva ed Invia i Dati di Onboarding
                                     </motion.button>
