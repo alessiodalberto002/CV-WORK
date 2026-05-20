@@ -79,11 +79,25 @@ const Navbar = ({ onNavigate }) => {
                             className="fixed bottom-6 inset-x-4 z-50 p-4 bg-white/95 border border-stone-200 shadow-xl rounded-3xl md:hidden flex flex-col gap-3 backdrop-blur-lg"
                         >
                             <a
+                                href="#portfolio"
+                                onClick={() => setIsOpen(false)}
+                                className="w-full text-center py-3 text-stone-600 hover:text-stone-900 hover:bg-stone-50 rounded-xl transition-colors font-medium"
+                            >
+                                Portfolio
+                            </a>
+                            <a
                                 href="#servizi"
                                 onClick={() => setIsOpen(false)}
                                 className="w-full text-center py-3 text-stone-600 hover:text-stone-900 hover:bg-stone-50 rounded-xl transition-colors font-medium"
                             >
                                 Servizi
+                            </a>
+                            <a
+                                href="#testimonials"
+                                onClick={() => setIsOpen(false)}
+                                className="w-full text-center py-3 text-stone-600 hover:text-stone-900 hover:bg-stone-50 rounded-xl transition-colors font-medium"
+                            >
+                                Testimonianze
                             </a>
                             <a
                                 href="#metodo"
